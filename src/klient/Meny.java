@@ -23,24 +23,10 @@ import no.hvl.data102.Sjanger;
             Film[] filmer = new Film[numberOfMovies];
             int index = 0;
             while (index < numberOfMovies) {
-                System.out.println("Ready to input information about the movie:");
-                System.out.println("filmnr: ");
-                int filmnr = scanner.nextInt();
-                System.out.println("Produsent: ");
-                String produsent = scanner.nextLine();
-                System.out.println("Title: ");
-                String title = scanner.nextLine();
-                System.out.println("Lansering's år");
-                int lansering = scanner.nextInt();
-                System.out.println("Sjanger: (ACTION, DRAMA, HISTORY, SCIFI) ");
-                Sjanger sjanger = Sjanger.valueOf(scanner.next().toUpperCase(Locale.ROOT));
-                System.out.println("FilmSelskap: ");
-                String filmSelskap = scanner.nextLine();
-                Film film = new Film(filmnr, produsent, title, lansering, sjanger, filmSelskap);
+                Film film = tekstgr.lesFilm();
                 filmer[index] = film;
                 index++;
             }
-        }
 
     }
 }
