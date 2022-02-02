@@ -60,6 +60,52 @@ public class Filmarkiv2 implements FilmarkivADT {
         return found;
     }
 
+    private Node getReferenceTo(Film aFilm) {
+        boolean found = false;
+        Node currentNode = firstNode;
+        while (!found && (currentNode != null)) {
+            if (aFilm.equals(currentNode.film)) {
+                found = true;
+            } else {
+                currentNode = currentNode.next;
+            }
+        }
+        return currentNode;
+    }
+
+    public boolean remove(int filmnr) {
+       boolean result = false;
+       Node currentNode = firstNode;
+       while (!result && (currentNode != null)) {
+           if (currentNode.film.getFilmnr() == filmnr) {
+               currentNode.film = firstNode.film;
+
+               firstNode = firstNode.next;
+               numerOfEntries--;
+               result = true;
+           }
+       }
+       return result;
+    }
+
+    public int antall() {
+        return numerOfEntries;
+    }
+
+    public Film[] searchTitle(String partOfString) {
+        int numberOfMovies = 0;
+        Film[] movies = new Film[numerOfEntries];
+        Node currentNode = firstNode;
+        while (currentNode != null) {
+            if (currentNode.film.getTitle().contains(partOfString)) {
+                movies[numberOfMovies] = currentNode.film;
+                numberOfMovies++;
+                currentNode = currentNode.next;
+            }
+        }
+        return movies;
+    }
+
 
 
 
