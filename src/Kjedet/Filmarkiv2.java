@@ -4,6 +4,12 @@ import adt.FilmarkivADT;
 import no.hvl.data102.Film;
 import no.hvl.data102.Sjanger;
 
+/** har følgt boken rundt denne klassen, det betyr at jeg har brukt engelske navn på variabler og metoder.
+ * Har også laget Node til en inner klasse. Utførte dette etter jeg har importerte LinearNode.
+ * Derfor er LinearNode i pakken, men ikke brukt.
+ * Metodene til FilmarkivADT ligger under men er ikke brukt. Det er fordi jeg har laget engelske metoder med samme
+ * funksjon, bare andre navn.
+ */
 public class Filmarkiv2 implements FilmarkivADT {
     private Node firstNode;
     private int numerOfEntries;
@@ -20,7 +26,7 @@ public class Filmarkiv2 implements FilmarkivADT {
         numerOfEntries++;
         return true;
     }
-
+    //metode for å endre kjedet til array, boken mente det var en viktig metode å inkludere.
     public Film[] toArray() {
         Film[] result = (Film[])new Object[numerOfEntries];
         int index = 0;
@@ -72,7 +78,7 @@ public class Filmarkiv2 implements FilmarkivADT {
         }
         return currentNode;
     }
-
+    //metode for å fjerne film med gitt filmnr.
     public boolean remove(int filmnr) {
        boolean result = false;
        Node currentNode = firstNode;
@@ -86,10 +92,6 @@ public class Filmarkiv2 implements FilmarkivADT {
            }
        }
        return result;
-    }
-
-    public int antall() {
-        return numerOfEntries;
     }
 
     public Film[] searchTitle(String partOfString) {
@@ -125,6 +127,35 @@ public class Filmarkiv2 implements FilmarkivADT {
             next = nextnode;
         }
     }
+    @Override
+    public void visFilm(int nr) {
+
+    }
+
+    @Override
+    public void leggTilFilm(Film nyFilm) {
+
+    }
+
+    @Override
+    public boolean slettFilm(int filmnr) {
+        return false;
+    }
+
+    @Override
+    public Film[] soekTittel(String delstreng) {
+        return new Film[0];
+    }
+
+    @Override
+    public int antall(Sjanger sjanger) {
+        return 0;
+    }
+
+    public int antall() {
+        return numerOfEntries;
+    }
+
 
 
 }
