@@ -148,6 +148,11 @@ public class Filmarkiv2 implements FilmarkivADT {
     }
 
     @Override
+    public Film[] soekProdusent(String delstrng) {
+        return new Film[0];
+    }
+
+    @Override
     public int antall(Sjanger sjanger) {
         return 0;
     }

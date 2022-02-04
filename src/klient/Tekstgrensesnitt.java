@@ -45,6 +45,7 @@ public class Tekstgrensesnitt {
 
     // Skriver ut alle Filmer av en produsent / en gruppe
     public void skrivUtFilmProdusent(FilmarkivADT filma, String delstreng) {
+        System.out.println(Arrays.toString((filma.soekProdusent(delstreng))));
         // TODO
     }
 

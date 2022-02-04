@@ -57,6 +57,20 @@ public class FilmArkiv implements FilmarkivADT {
         return proxyFilmer;
     }
 
+    public Film[] soekProdusent(String delstreng) {
+        Film[] proxyFilmer = new Film[filmer.length];
+        int nmrFilmer = 0;
+        for (int i = 0; i < filmer.length; i++) {
+            if (filmer[i].getProdusent().contains(delstreng)) {
+                proxyFilmer[i] = filmer[i];
+                nmrFilmer++;
+            }
+        }
+        trimTab(proxyFilmer, (nmrFilmer));
+        return proxyFilmer;
+    }
+
+
     public int antall(Sjanger sjanger) {
         int antall = 0;
         for (Film film: filmer) {
